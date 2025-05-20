@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 16:48:33 by mklevero          #+#    #+#             */
-/*   Updated: 2025/05/19 18:57:42 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:49:42 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,11 @@ char	*get_next_line(int fd)
 		buffer = NULL;
 		return (NULL);
 	}
-	result = // pass  to the function which fill the result.
+	result = get_line(fd, remainings, buffer); 
+}
+
+char *get_line(int fd, char *remainings, char *buffer)
+{
+
+
 }
