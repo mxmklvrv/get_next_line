@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 16:49:54 by mklevero          #+#    #+#             */
-/*   Updated: 2025/05/22 13:07:59 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:14:50 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 69
+#  define BUFFER_SIZE 9999
 # endif
 
 # include <fcntl.h>
