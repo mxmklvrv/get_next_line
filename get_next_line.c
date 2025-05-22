@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 16:48:33 by mklevero          #+#    #+#             */
-/*   Updated: 2025/05/22 19:27:31 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:43:33 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char	*ft_save_leftovers(char *full_line)
 	}
 	return (NULL);
 }
+
 char	*get_next_line(int fd)
 {
 	char		*result;
