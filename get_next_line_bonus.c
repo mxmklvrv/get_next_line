@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/23 14:55:42 by mklevero          #+#    #+#             */
+/*   Updated: 2025/05/23 15:51:10 by mklevero         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
@@ -63,7 +73,7 @@ char	*get_next_line(int fd)
 	result = NULL;
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
-		return (free(leftovers[fd]), NULL);
+		return (free(leftovers[fd]), leftovers[fd] = NULL, NULL);
 	leftovers[fd] = ft_get_line(fd, leftovers[fd], buffer);
 	free(buffer);
 	buffer = NULL;
@@ -73,63 +83,3 @@ char	*get_next_line(int fd)
 	leftovers[fd] = ft_save_leftovers(result);
 	return (result);
 }
-/*
- int	main(void)
- {
- 	int		fd;
- 	char	*next_line;
- 	int		count;
- 	count = 0;
- 	fd = open("text.txt", O_RDONLY);
- 	if (fd == -1)
- 		return (1);
- 	while (1)
- 	{
- 		next_line = get_next_line(fd);
- 		if (!next_line)
- 			break ;
- 		count++;
- 		printf("[%d] -> %s", count, next_line);
- 		free(next_line);
- 		next_line = NULL;
- 	}
- 	close(fd);
- 	return (0);
- }
-*/
-/*
-int	main(void)
-{
-	int		fd1;
-	int		fd2;
-	char	*next_line1;
-	char	*next_line2;
-	int		count;
-
-	count = 0;
-	fd1 = open("a.txt", O_RDONLY);
-	fd2 = open("b.txt", O_RDONLY);
-	if (fd1 < 0 || fd2 < 0)
-		return (1);
-	while (1)
-	{
-		next_line1 = get_next_line(fd1);
-		if (!next_line1)
-			break ;
-		next_line2 = get_next_line(fd2);
-		if (!next_line2)
-		{
-			free (next_line1);
-			break ;
-		}
-		count++;
-		printf("fd1 - %d -> %s", count, next_line1);
-		free (next_line1);
-		printf("fd2 - %d -> %s", count, next_line2);
-		free (next_line2);
-	}
-	close(fd1);
-	close(fd2);
-	return (0);
-}
-*/
