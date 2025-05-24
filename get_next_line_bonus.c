@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:55:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/05/23 15:51:10 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:11:21 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*get_next_line(int fd)
 	free(buffer);
 	buffer = NULL;
 	if (!leftovers[fd])
-		return (NULL);
+		return (free(leftovers[fd]), leftovers[fd] = NULL, NULL);
 	result = leftovers[fd];
 	leftovers[fd] = ft_save_leftovers(result);
 	return (result);

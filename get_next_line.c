@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 16:48:33 by mklevero          #+#    #+#             */
-/*   Updated: 2025/05/23 15:50:49 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:29:09 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,32 +78,8 @@ char	*get_next_line(int fd)
 	free(buffer);
 	buffer = NULL;
 	if (!leftovers)
-		return (NULL);
+		return (free(leftovers), leftovers = NULL, NULL);
 	result = leftovers;
 	leftovers = ft_save_leftovers(result);
 	return (result);
-}
-
-int	main(void)
-{
-	int		fd;
-	char	*next_line;
-	int		count;
-
-	count = 0;
-	fd = open("kalevala.txt", O_RDONLY);
-	if (fd == -1)
-		return (1);
-	while (1)
-	{
-		next_line = get_next_line(fd);
-		if (!next_line)
-			break ;
-		count++;
-		printf("[%d] -> %s", count, next_line);
-		free(next_line);
-		next_line = NULL;
-	}
-	close(fd);
-	return (0);
 }
